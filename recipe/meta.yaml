@@ -11,7 +11,7 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - conda-project = conda_project.cli.main:main
@@ -36,7 +36,7 @@ test:
     - conda_project
   commands:
     - conda-project --help
-    - python -c "import conda_project; ver = conda_project.__version__; assert ver == '{{ version }}'"
+    - python -c "import conda_project; ver = conda_project.__version__; assert ver == {{ version }}"
 
 about:
   home: https://github.com/conda-incubator/conda-project
