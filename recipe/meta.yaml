@@ -1,5 +1,5 @@
 {% set name = "conda-project" %}
-{% set version = "0.1.1" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 05833bf4949665de539ab9d55631aa30d90300a70c7b67b5e8c64a15338e66e0
+  sha256: 178bd098fc820e35be8592b73271af099934db6dc37c7d873cf25a6d32bb6dff
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - conda-project = conda_project.cli.main:main
@@ -30,6 +30,8 @@ requirements:
     - pydantic
     - shellingham
     - python-dotenv
+    - fsspec
+    - python-libarchive-c
 
 test:
   imports:
