@@ -1,5 +1,5 @@
 {% set name = "conda-project" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 178bd098fc820e35be8592b73271af099934db6dc37c7d873cf25a6d32bb6dff
+  sha256: 4661b20ffd8b17bcfce5107e785619c747c843afd7f901f0d212ccc2962763cd
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -42,7 +42,7 @@ test:
 
 about:
   home: https://github.com/conda-incubator/conda-project
-  summary: 'Tool for encapsulating, running, and reproducing projects with conda environments'
+  summary: Tool for encapsulating, running, and reproducing projects with conda environments
   description: |
     Sharing your work is more than sharing your code in a script file or notebook. To make your
     work properly reproducible, it is necessary to include the list of required third-party
