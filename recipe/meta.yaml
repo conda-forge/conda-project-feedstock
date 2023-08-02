@@ -1,5 +1,5 @@
 {% set name = "conda-project" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 178bd098fc820e35be8592b73271af099934db6dc37c7d873cf25a6d32bb6dff
+  sha256: 4661b20ffd8b17bcfce5107e785619c747c843afd7f901f0d212ccc2962763cd
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
