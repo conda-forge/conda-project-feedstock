@@ -1,5 +1,5 @@
 {% set name = "conda-project" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4661b20ffd8b17bcfce5107e785619c747c843afd7f901f0d212ccc2962763cd
+  sha256: b5c4b14fb72afe624636f745111061a96064f0718e1565bf0c57cf349be56e61
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -23,7 +23,7 @@ requirements:
     - setuptools
   run:
     - python >=3.8,<3.12
-    - conda-lock >=1.2
+    - conda-lock >=2.2
     - lockfile
     - pexpect
     - ruamel.yaml
