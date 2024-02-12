@@ -20,7 +20,9 @@ requirements:
   host:
     - python >=3.8,<3.12
     - pip
-    - setuptools
+    - hatchling
+    - hatch-vcs >=0.3
+    - setuptools-scm >=7.1
   run:
     - python >=3.8,<3.12
     - conda-lock >=2.2
