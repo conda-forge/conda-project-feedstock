@@ -10,21 +10,21 @@ source:
   sha256: 5a42569aebe8c9556b5024e285487a2a8464c206629c53d5c156e378a2dcf15f
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
+  skip: True  # [py<38]
+  script: {{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
   number: 0
-  noarch: python
   entry_points:
     - conda-project = conda_project.cli.main:main
 
 requirements:
   host:
-    - python >=3.8,<3.13
+    - python
     - pip
     - hatchling
     - hatch-vcs >=0.3
     - setuptools-scm >=7.1
   run:
-    - python >=3.8,<3.13
+    - python
     - conda-lock >=2.5.6
     - lockfile
     - pexpect
@@ -37,9 +37,12 @@ requirements:
     - setuptools
 
 test:
+  requires:
+    - pip
   imports:
     - conda_project
   commands:
+    - pip check
     - conda-project --help
     - python -c "import conda_project; ver = conda_project.__version__; assert ver == \"{{ version }}\""
 
