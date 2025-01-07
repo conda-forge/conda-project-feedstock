@@ -6,25 +6,25 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 3a370742ebb1df6927caf5ba97b2ab76a83ebb3116b9d2f3350f3bd1ebae2c1e
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - conda-project = conda_project.cli.main:main
 
 requirements:
   host:
-    - python >=3.8,<3.13
+    - python {{ python_min }}
     - pip
     - hatchling
     - hatch-vcs >=0.3
     - setuptools-scm >=7.1
   run:
-    - python >=3.8,<3.13
+    - python >={{ python_min }},<3.13
     - conda-lock >=2.5.6
     - lockfile
     - pexpect
@@ -37,6 +37,8 @@ requirements:
     - setuptools
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - conda_project
   commands:
