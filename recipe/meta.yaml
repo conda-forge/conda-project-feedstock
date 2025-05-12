@@ -24,7 +24,7 @@ requirements:
     - hatch-vcs >=0.3
     - setuptools-scm >=7.1
   run:
-    - python >={{ python_min }},<3.13
+    - python >={{ python_min }}
     - conda-lock >=2.5.6
     - lockfile
     - pexpect
