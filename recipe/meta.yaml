@@ -1,5 +1,5 @@
 {% set name = "conda-project" %}
-{% set version = "0.4.2" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 3a370742ebb1df6927caf5ba97b2ab76a83ebb3116b9d2f3350f3bd1ebae2c1e
+  sha256: 8cd229e095436ebb7a87343c236a7b1b9b388ebee19ee7bbb92a76bcd185aae8
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - conda-project = conda_project.cli.main:main
@@ -24,7 +24,7 @@ requirements:
     - hatch-vcs >=0.3
     - setuptools-scm >=7.1
   run:
-    - python >={{ python_min }},<3.13
+    - python >={{ python_min }}
     - conda-lock >=2.5.6
     - lockfile
     - pexpect
